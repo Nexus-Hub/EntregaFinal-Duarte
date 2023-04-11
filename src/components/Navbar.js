@@ -12,7 +12,7 @@ function Navbar() {
                 <li><a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Keyboards</a></li>
                 <li><a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Mouse</a></li>
 
-                <li><CartWidget /></li>
+                <CartWidget />
             </ul>
         </nav>
     );

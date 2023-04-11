@@ -1,4 +1,4 @@
-function Greeting() {
+function ItemListContainer({ greeting }) {
     return (
         <div>
             <div className="flex-grow">
@@ -11,10 +11,13 @@ function Greeting() {
 
                     Made by: Carlos Duarte Medina - ReactJS39665
                 </p>
+                <p className="text-xl mt-8 px-6 font-mono text-center">
+                    {greeting}
+                </p>
             </div>
         </div>
     );
 }
 
-export default Greeting;
+export default ItemListContainer;
 

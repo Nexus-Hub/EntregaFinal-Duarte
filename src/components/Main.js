@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Greeting from "./ItemListContainer";
+import ItemListContainer from "./ItemListContainer";
 
 const Main = () => {
     const [showMessage, setShowMessage] = useState(false);
@@ -10,7 +10,9 @@ const Main = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <Greeting />
+
+            <ItemListContainer greeting="Hola desde el prop" />
+
             <button
                 className="bg-green-500 rounded-md text-white font-bold py-2 px-4 my-4 mx-auto"
                 onClick={handleClick}
