@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import products from "../products.json"
 import { useParams } from "react-router-dom"
+import ItemDetail from "./ItemDetail"
 
 const ItemDetailContainer = () => {
 
@@ -15,18 +16,7 @@ const ItemDetailContainer = () => {
     }, [params.id])
 
     return (
-        <div>
-            {state &&
-                (<div>
-
-                    <h2>{state.title}</h2>
-                    <img src={state.image} width="300" alt={state.title} />
-                    <p>{state.description}</p>
-                    <h3>Precio: $ {state.price}</h3>
-
-                </div>)
-            }
-        </div>
+        <ItemDetail product={state} />
 
     )
 }
