@@ -1,23 +1,47 @@
-function ItemListContainer({ greeting }) {
-    return (
-        <div>
-            <div className="flex-grow">
-                <h2 className="text-3xl font-bold text-center mb-4">
-                    Welcome to Nexus <span className="text-green-500">PC Store</span>
-                </h2>
-                <p className="text-xl px-6 font-mono text-center">
-                    This will be my ReactJS project + Tailwind for Commission 39665<br /><br />
-                    Status: Pre-entrega 1<br /><br /><br /><br />
+import { useEffect, useState } from "react"
+import ItemList from "./ItemList"
+import products from "../products.json"
+import { useParams } from "react-router-dom"
 
-                    Made by: Carlos Duarte Medina - ReactJS39665
-                </p>
-                <p className="text-xl mt-8 px-6 font-mono text-center">
-                    {greeting}
-                </p>
-            </div>
-        </div>
-    );
+const title = {
+    'men-clothing': "Men's Clothing",
+    'women-clothing': "Women's Clothing",
+    'electronics': "Electronics",
+    'jewelery': "Jewels",
 }
 
-export default ItemListContainer;
+const ItemListContainer = () => {
 
+    const [state, setState] = useState([])
+    const params = useParams()
+    useEffect(() => {
+
+        const fetch = new Promise((res, rej) => {
+            setTimeout(() => {
+                if (params.id == undefined) {
+                    res(products)
+                } else {
+                    res(products.filter((product) => product.category === params.id))
+                }
+            }, 2000)
+        })
+
+        fetch
+            .then((res) => {
+                setState(res)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+
+    }, [params.id])
+
+    return (
+        <div>
+            <h1>{params.id == undefined ? "Home" : title[params.id]}</h1>
+            <ItemList products={state} />
+        </div>
+    )
+
+}
+export default ItemListContainer
