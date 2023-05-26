@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import CartContext from "./CartContext"
+
 function CartWidget() {
+
+    const { cart } = useContext(CartContext)
+
     return (
         <div className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -7,8 +13,7 @@ function CartWidget() {
                 <circle cx="20" cy="20" r="2" />
                 <path d="M18 14H6L4 4H1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-
-            <span className="bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">3</span>
+            <span className="bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">{cart.length}</span>
         </div>
     );
 }

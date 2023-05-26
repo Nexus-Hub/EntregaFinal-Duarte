@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
-import products from "../products.json"
 import { useParams } from "react-router-dom"
+import { getProducts } from "../utils"
 
 const title = {
     'men-clothing': "Men's Clothing",
@@ -14,31 +14,19 @@ const ItemListContainer = () => {
 
     const [state, setState] = useState([])
     const params = useParams()
+
     useEffect(() => {
 
-        const fetch = new Promise((res, rej) => {
-            setTimeout(() => {
-                if (params.id == undefined) {
-                    res(products)
-                } else {
-                    res(products.filter((product) => product.category === params.id))
-                }
-            }, 2000)
-        })
-
-        fetch
-            .then((res) => {
-                setState(res)
-            })
-            .catch((error) => {
-                console.log(error)
+        getProducts(params.id)
+            .then((result) => {
+                setState(result)
             })
 
-    }, [params.id])
+    }, [params])
 
     return (
         <div>
-            <h1>{params.id == undefined ? "Home" : title[params.id]}</h1>
+            <h1 className="text-5xl font-bold text-center mb-4 underline">{params.id == undefined ? "Home" : title[params.id]}</h1>
             <ItemList products={state} />
         </div>
     )

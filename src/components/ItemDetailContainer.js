@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import products from "../products.json"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
+import { getProductDetail } from "../utils"
 
 const ItemDetailContainer = () => {
 
@@ -9,11 +9,13 @@ const ItemDetailContainer = () => {
     const params = useParams()
 
     useEffect(() => {
+        getProductDetail(params.id)
+            .then((result) => {
 
-        const item = products.filter((product) => product.id === parseInt(params.id))
-        setState(item[0])
+                setState(result)
+            })
 
-    }, [params.id])
+    }, [params])
 
     return (
         <ItemDetail product={state} />
