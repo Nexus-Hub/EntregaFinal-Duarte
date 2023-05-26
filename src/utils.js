@@ -29,7 +29,6 @@ export const getProducts = async (categoryId) => {
         }
 
     } catch (error) {
-        console.log("Hubo un error pidiendo todos los productos")
         console.log(error)
     }
 
@@ -70,7 +69,6 @@ export const addOrderToDB = async (orderDetails) => {
             status: "generada",
             ...orderDetails
         });
-        console.log("Document written with ID: ", docRef.id);
         return docRef.id
     } catch (error) {
         console.log(error)

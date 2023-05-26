@@ -15,7 +15,6 @@ const SuccessCheckout = () => {
             .then((orderExistInDB) => {
                 if (orderExistInDB) {
                     setOrder(orderExistInDB)
-                    console.log(orderExistInDB)
                 }
             })
             .catch((error) => {
