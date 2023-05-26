@@ -47,3 +47,32 @@ export const getProductDetail = async (productId) => {
         console.log(error)
     }
 }
+
+export const getOrderDetail = async (orderId) => {
+    try {
+        const docRef = doc(db, "orders", orderId);
+        const document = await getDoc(docRef);
+        if (document.exists()) {
+            return {
+                id: document.id,
+                ...document.data()
+            }
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const addOrderToDB = async (orderDetails) => {
+    try {
+        const docRef = await addDoc(collection(db, "orders"), {
+            createdAt: new Date(),
+            status: "generada",
+            ...orderDetails
+        });
+        console.log("Document written with ID: ", docRef.id);
+        return docRef.id
+    } catch (error) {
+        console.log(error)
+    }
+}

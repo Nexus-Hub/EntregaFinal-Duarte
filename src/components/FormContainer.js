@@ -1,6 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { addOrderToDB } from "../utils";
+import CartContext from "../contexts/CartContext";
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 const FormContainer = () => {
+
+    const { cart, clearCartItems } = useContext(CartContext)
+
+    const navigate = useNavigate()
 
     const [disableState, setDisableState] = useState(true)
 
@@ -13,7 +21,7 @@ const FormContainer = () => {
     });
 
     const handleStateChange = () => {
-        if (!formData.firstName || !formData.lastName || !formData.phone || !formData.email || formData.email != formData.confirmEmail) {
+        if (cart.length < 1 || !formData.firstName || !formData.lastName || !formData.phone || !formData.email || formData.email != formData.confirmEmail) {
             setDisableState(true)
             return
         }
@@ -29,10 +37,15 @@ const FormContainer = () => {
 
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setDisableState(true)
-        console.log(formData)
+        const orderId = await addOrderToDB({ ...formData, productsPurchased: cart })
+        if (orderId) {
+            toast.success("Your order has been placed succesfully.")
+            clearCartItems()
+            navigate(`/successCheckout/${orderId}`)
+        }
     };
 
     useEffect(() => {
@@ -40,8 +53,9 @@ const FormContainer = () => {
     }, [formData])
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form onSubmit={handleSubmit} className="form-input mt-4 mb-4 ml-4 mr-4 px-10 py-3 rounded">
+            <h2 className="text-3xl font-bold mb-4">User details Form</h2>
+            <div className="mt-4">
                 <label htmlFor="firstName">First Name:</label>
                 <input
                     type="text"
@@ -51,7 +65,7 @@ const FormContainer = () => {
                     onChange={handleChange}
                 />
             </div>
-            <div>
+            <div className="mt-4">
                 <label htmlFor="lastName">Last Name:</label>
                 <input
                     type="text"
@@ -61,17 +75,17 @@ const FormContainer = () => {
                     onChange={handleChange}
                 />
             </div>
-            <div>
+            <div className="mt-4">
                 <label htmlFor="phone">Phone:</label>
                 <input
-                    type="text"
+                    type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                 />
             </div>
-            <div>
+            <div className="mt-4">
                 <label htmlFor="email">Email:</label>
                 <input
                     type="email"
@@ -81,7 +95,7 @@ const FormContainer = () => {
                     onChange={handleChange}
                 />
             </div>
-            <div>
+            <div className="mt-4">
                 <label htmlFor="confirmEmail">Confirm Email:</label>
                 <input
                     type="email"
@@ -91,7 +105,8 @@ const FormContainer = () => {
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" disabled={disableState}>Realizar Compra</button>
+            <button className="mt-4 mb-4 rounded border-4 hover:bg-green-500" type="submit" disabled={disableState}>Realizar Compra</button>
+            <Toaster />
         </form>
     )
 }

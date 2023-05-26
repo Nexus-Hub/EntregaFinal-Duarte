@@ -1,10 +1,11 @@
-import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CartProvider } from './contexts/CartContext';
 import Navbar from "./components/Navbar";
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import CartContainer from './pages/Cart';
-import { CartProvider } from './components/CartContext';
+import Footer from './components/Footer';
+import SuccessCheckout from "./pages/SuccessCheckout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/category/:id" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
+          <Route path="/successCheckout/:id" element={<SuccessCheckout />} />
         </Routes>
         <Footer />
       </CartProvider>

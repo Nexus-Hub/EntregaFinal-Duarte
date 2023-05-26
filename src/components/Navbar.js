@@ -3,10 +3,10 @@ import CartWidget from "./CartWidget";
 
 function Navbar() {
     return (
-        <nav className="bg-gray-900 p-1 flex justify-between">
+        <nav className="bg-gray-900 p-4 flex justify-between">
             <NavLink to="/">
-                <h1 className="text-3xl font-bold text-center mb-4">
-                    <span className="text-white">Nexus</span><span className="text-green-500">Shop</span>
+                <h1 className="text-3xl font-bold font-mono italic text-center">
+                    <span className="text-white">NEXU</span><span className="text-green-500">SHOP</span>
                 </h1>
             </NavLink>
             <ul className="flex justify-between">
