@@ -43,4 +43,4 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 ### Uso
 GIF de la pantalla realizando una compra con mi proyecto : 
 
-https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWY3ZDc5ZWVkNWQ3ZDIzYWUxMmEwNTM5MmMzNjBiMTA4MjU2OWFmNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/iaUV6QEq7JXrWeLoXn/giphy.gif
+https://drive.google.com/file/d/1AnsboeJGvTDkikRuqGE7-fokFymBHTb2/view?usp=share_link
