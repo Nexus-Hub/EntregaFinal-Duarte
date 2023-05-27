@@ -20,14 +20,6 @@ const FormContainer = () => {
         confirmEmail: ''
     });
 
-    const handleStateChange = () => {
-        if (cart.length < 1 || !formData.firstName || !formData.lastName || !formData.phone || !formData.email || formData.email !== formData.confirmEmail) {
-            setDisableState(true)
-            return
-        }
-        setDisableState(false)
-    }
-
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -49,8 +41,15 @@ const FormContainer = () => {
     };
 
     useEffect(() => {
+        const handleStateChange = () => {
+            if (cart.length < 1 || !formData.firstName || !formData.lastName || !formData.phone || !formData.email || formData.email !== formData.confirmEmail) {
+                setDisableState(true);
+            } else {
+                setDisableState(false);
+            }
+        }
         handleStateChange()
-    }, [formData])
+    }, [cart, formData, setDisableState])
 
     return (
 
