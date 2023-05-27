@@ -4,6 +4,9 @@ import CartContext from "../contexts/CartContext";
 function CartWidget() {
 
     const { cart } = useContext(CartContext)
+    const totalQty = cart.reduce((accumulator, product) => {
+        return accumulator + product.amount;
+    }, 0);
 
     return (
         <div className="flex items-center">
@@ -13,7 +16,8 @@ function CartWidget() {
                 <circle cx="20" cy="20" r="2" />
                 <path d="M18 14H6L4 4H1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">{cart.length}</span>
+            <span className="bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">{totalQty}</span>
+
         </div>
     );
 }

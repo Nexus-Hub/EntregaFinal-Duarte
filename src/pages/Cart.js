@@ -9,18 +9,18 @@ const CartContainer = () => {
 
     return (
         <>
-            <div className="flex gap-5 mt-4">
+            <div className="flex gap-5 mt-4 mb-4 ml-10">
                 <h1 className="text-5xl font-bold mb-4">Cart</h1>
-                <button className="bg-red-500 rounded-full px-4 mb-4" onClick={clearCartItems}>Remove All Products</button>
+                <button className="bg-red-300 rounded-full px-4 mb-4 hover:bg-red-500" onClick={clearCartItems}>Remove All Products</button>
             </div>
             {cart.map((product) => {
                 return (
                     <CartItem key={product.id} cartItem={product} removeFromCart={removeFromCart} />
                 )
             })}
-            <div className="text-xl font-bold">
-                <span>Total: </span>
-                {cart.reduce((previousValue, currentValue) => previousValue + (currentValue.amount * currentValue.price), 0)}
+            <div className="text-5xl font-bold mt-4 mb-10 ml-10">
+                <span>Total: $</span>
+                {cart.reduce((accumulator, currentValue) => accumulator + (currentValue.amount * currentValue.price), 0).toFixed(2)}
             </div>
 
             <FormContainer />
