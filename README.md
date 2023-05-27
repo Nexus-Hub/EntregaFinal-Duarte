@@ -2,7 +2,7 @@
 El nombre de mi proyecto es NEXUSTORE.
 
 ### Descripción del Proyecto
-El proyecto es un e-commerce desarrollado en React gracias a la ayuda del profesor Horacio y los tutores de Coderhouse que lo hicieron posible
+El proyecto es un e-commerce desarrollado en React gracias a la ayuda del profesor Horacio y los tutores de Coderhouse que lo hicieron posible.
 
 El sitio permite a los usuarios realizar compras de productos y guardar la información de la compra en una colección de Firebase. Proporciona una experiencia de compra intuitiva y fácil de usar para los clientes, al tiempo que utiliza la funcionalidad de Firebase para almacenar y recuperar datos.
 
@@ -31,7 +31,7 @@ En el desarrollo de este proyecto, además de las libreria de tailwind para CSS 
 
 - React Router DOM (react-router-dom): Esta librería se utiliza para manejar la navegación y la creación de rutas en una aplicación React. En el código, se utilizan varias funciones y componentes proporcionados por React Router DOM. Algunos de ellos incluyen useParams para acceder a los parámetros de la URL, NavLink y Link para crear enlaces de navegación, BrowserRouter para envolver la aplicación con el enrutador, Route para definir rutas y componentes asociados, Routes para agrupar varias rutas y useNavigate para la navegación programática.
 
-### Instalación
+### Instalación y uso Local
 Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 
 1. Clona este repositorio en tu máquina local con git clone https://github.com/Nexus-Hub/EntregaFinal-Duarte.git
@@ -40,6 +40,5 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 
 3. Ejecuta el proyecto con npm start
 
-### Uso
+### Uso en linea
 En el siguiente link podras usar y simular mi proyecto: https://entregafinal-duarte.up.railway.app/
-Muchas gracias Coderhouse!
