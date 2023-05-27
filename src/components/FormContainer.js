@@ -21,7 +21,7 @@ const FormContainer = () => {
     });
 
     const handleStateChange = () => {
-        if (cart.length < 1 || !formData.firstName || !formData.lastName || !formData.phone || !formData.email || formData.email != formData.confirmEmail) {
+        if (cart.length < 1 || !formData.firstName || !formData.lastName || !formData.phone || !formData.email || formData.email !== formData.confirmEmail) {
             setDisableState(true)
             return
         }

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import useCounter from "../hooks/useCounter";
 import CartContext from "../contexts/CartContext";
