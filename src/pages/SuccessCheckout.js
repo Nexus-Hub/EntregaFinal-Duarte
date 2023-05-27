@@ -36,13 +36,12 @@ const SuccessCheckout = () => {
                 </div>
             }
 
-
             {
                 !order && !loading &&
                 <div className="bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded text-center">
                     <p>Cargando detalles de la orden:</p>
                     <p>CiBB01tC4pCpHa... </p>
-                    <p >Si este proceso tarda más de 5 segundos, por favor verifique que su número de orden sea el correcto.</p>
+                    <p>Si este proceso tarda más de 5 segundos, por favor verifique que su número de orden sea el correcto.</p>
                 </div>
             }
 

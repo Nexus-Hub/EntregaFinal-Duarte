@@ -38,9 +38,11 @@ export const getProductDetail = async (productId) => {
     try {
         const docRef = doc(db, "products", productId);
         const document = await getDoc(docRef);
-        return {
-            id: document.id,
-            ...document.data()
+        if (document.exists()) {
+            return {
+                id: document.id,
+                ...document.data()
+            }
         }
     } catch (error) {
         console.log(error)

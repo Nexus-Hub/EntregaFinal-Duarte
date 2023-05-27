@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import useCounter from "../hooks/useCounter";
 import CartContext from "../contexts/CartContext";
 
-export const ItemDetail = ({ product }) => {
+const ItemDetail = ({ product }) => {
 
     const { addToCart } = useContext(CartContext)
 
@@ -24,6 +24,7 @@ export const ItemDetail = ({ product }) => {
 
     return (
         <div>
+
             {product &&
                 (<div>
                     <h2 className="text-5xl font-mono uppercase font-bold text-center mt-4 mb-4 underline">{product.title}</h2>
@@ -40,6 +41,9 @@ export const ItemDetail = ({ product }) => {
                     <Toaster />
                 </div>)
             }
+
+            {!product && <p className="bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded text-center">El producto no existe... por favor verifica la ruta o utiliza el navbar y los botones para navegar por el sitio.</p>}
+
         </div>
     )
 }
