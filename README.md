@@ -42,3 +42,4 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 
 ### Uso
 En el siguiente link podras usar y simular mi proyecto: https://entregafinal-duarte.up.railway.app/
+Muchas gracias Coderhouse!
