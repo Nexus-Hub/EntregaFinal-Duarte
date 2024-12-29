@@ -25,7 +25,7 @@ const ItemListContainer = () => {
     }, [params])
 
     return (
-        <div className>
+        <div>
             <h1 className="text-5xl font-mono uppercase font-bold text-center mt-4 mb-4 underline">{params.id === undefined ? "Home" : title[params.id]}</h1>
             <ItemList products={state} />
         </div>
