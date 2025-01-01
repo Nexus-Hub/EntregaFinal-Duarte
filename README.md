@@ -41,4 +41,4 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 3. Ejecuta el proyecto con npm start
 
 ### Uso en linea
-En el siguiente link podras usar y simular mi proyecto: https://entregafinal-duarte.up.railway.app/
+En el siguiente link podras usar mi proyecto: https://entregafinal-duarte-production.up.railway.app/
